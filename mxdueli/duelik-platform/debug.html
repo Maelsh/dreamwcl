@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تشخيص منصة Dueli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #0a8; }
+        .error { background: #c00; }
+        .info { background: #06f; }
+        button {
+            background: #0a84ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-result {
+            padding: 15px;
+            margin: 10px 0;
+            background: #333;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 تشخيص منصة Dueli</h1>
+    
+    <div id="status-log"></div>
+    
+    <button onclick="testHomepage()">اختبار الصفحة الرئيسية</button>
+    <button onclick="testLoginPage()">اختبار صفحة تسجيل الدخول</button>
+    <button onclick="testDashboardPage()">اختبار لوحة التحكم</button>
+    <button onclick="testAllPages()">اختبار جميع الصفحات</button>
+    
+    <div id="test-results"></div>
+
+    <script>
+        const statusLog = document.getElementById('status-log');
+        const testResults = document.getElementById('test-results');
+
+        function addStatus(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.textContent = message;
+            statusLog.appendChild(div);
+            console.log(`${type.toUpperCase()}: ${message}`);
+        }
+
+        function addTestResult(title, result, details = '') {
+            const div = document.createElement('div');
+            div.className = 'test-result';
+            div.innerHTML = `
+                <h3>${title}</h3>
+                <p><strong>النتيجة:</strong> ${result}</p>
+                ${details ? `<p><strong>التفاصيل:</strong> ${details}</p>` : ''}
+            `;
+            testResults.appendChild(div);
+        }
+
+        async function testPage(url, expectedTitle) {
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
+                
+                // Check if page loads
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                // Check if title exists
+                const hasTitle = html.includes('<title>');
+                const hasCss = html.includes('<link rel="stylesheet"');
+                const hasJs = html.includes('<script');
+                const hasContent = html.includes('<body>') && html.includes('</body>');
+                
+                return {
+                    status: 'success',
+                    hasTitle,
+                    hasCss,
+                    hasJs,
+                    hasContent,
+                    response: response.status
+                };
+            } catch (error) {
+                return {
+                    status: 'error',
+                    error: error.message
+                };
+            }
+        }
+
+        async function testHomepage() {
+            addStatus('اختبار الصفحة الرئيسية...', 'info');
+            const result = await testPage('/', 'Dueli - منصة المنافسات التفاعلية');
+            
+            if (result.status === 'success') {
+                addTestResult('الصفحة الرئيسية', '✅ تعمل بشكل صحيح', `
+                    - العنوان: ${result.hasTitle ? 'موجود' : 'مفقود'}
+                    - ملفات CSS: ${result.hasCss ? 'موجودة' : 'مفقودة'}
+                    - ملفات JavaScript: ${result.hasJs ? 'موجودة' : 'مفقودة'}
+                    - المحتوى: ${result.hasContent ? 'موجود' : 'مفقود'}
+                    - كود الاستجابة: ${result.response}
+                `);
+                addStatus('الصفحة الرئيسية تعمل بشكل صحيح!', 'success');
+            } else {
+                addTestResult('الصفحة الرئيسية', '❌ خطأ', result.error);
+                addStatus('خطأ في الصفحة الرئيسية: ' + result.error, 'error');
+            }
+        }
+
+        async function testLoginPage() {
+            addStatus('اختبار صفحة تسجيل الدخول...', 'info');
+            const result = await testPage('/auth/login.html', 'تسجيل الدخول');
+            
+            if (result.status === 'success') {
+                addTestResult('صفحة تسجيل الدخول', '✅ تعمل بشكل صحيح', `
+                    - العنوان: ${result.hasTitle ? 'موجود' : 'مفقود'}
+                    - ملفات CSS: ${result.hasCss ? 'موجودة' : 'مفقودة'}
+                    - ملفات JavaScript: ${result.hasJs ? 'موجودة' : 'مفقودة'}
+                    - المحتوى: ${result.hasContent ? 'موجود' : 'مفقود'}
+                    - كود الاستجابة: ${result.response}
+                `);
+                addStatus('صفحة تسجيل الدخول تعمل بشكل صحيح!', 'success');
+            } else {
+                addTestResult('صفحة تسجيل الدخول', '❌ خطأ', result.error);
+                addStatus('خطأ في صفحة تسجيل الدخول: ' + result.error, 'error');
+            }
+        }
+
+        async function testDashboardPage() {
+            addStatus('اختبار لوحة التحكم...', 'info');
+            const result = await testPage('/dashboard.html', 'لوحة التحكم');
+            
+            if (result.status === 'success') {
+                addTestResult('لوحة التحكم', '✅ تعمل بشكل صحيح', `
+                    - العنوان: ${result.hasTitle ? 'موجود' : 'مفقود'}
+                    - ملفات CSS: ${result.hasCss ? 'موجودة' : 'مفقودة'}
+                    - ملفات JavaScript: ${result.hasJs ? 'موجودة' : 'مفقودة'}
+                    - المحتوى: ${result.hasContent ? 'موجود' : 'مفقود'}
+                    - كود الاستجابة: ${result.response}
+                `);
+                addStatus('لوحة التحكم تعمل بشكل صحيح!', 'success');
+            } else {
+                addTestResult('لوحة التحكم', '❌ خطأ', result.error);
+                addStatus('خطأ في لوحة التحكم: ' + result.error, 'error');
+            }
+        }
+
+        async function testAllPages() {
+            addStatus('اختبار جميع الصفحات...', 'info');
+            
+            const pages = [
+                { url: '/', name: 'الصفحة الرئيسية' },
+                { url: '/auth/login.html', name: 'تسجيل الدخول' },
+                { url: '/auth/register.html', name: 'التسجيل' },
+                { url: '/dashboard.html', name: 'لوحة التحكم' },
+                { url: '/create-challenge.html', name: 'إنشاء منافسة' },
+                { url: '/challenge-room.html', name: 'غرفة المنافسة' },
+                { url: '/profile.html', name: 'البروفايل الشخصي' }
+            ];
+
+            let successCount = 0;
+            let errorCount = 0;
+
+            for (const page of pages) {
+                const result = await testPage(page.url, page.name);
+                
+                if (result.status === 'success') {
+                    successCount++;
+                    addTestResult(page.name, '✅ تعمل', `كود الاستجابة: ${result.response}`);
+                } else {
+                    errorCount++;
+                    addTestResult(page.name, '❌ خطأ', result.error);
+                }
+            }
+
+            addStatus(`انتهى الاختبار: ${successCount} نجح، ${errorCount} فشل`, 
+                     errorCount === 0 ? 'success' : 'error');
+        }
+
+        // Test loading assets
+        function testAssets() {
+            addStatus('اختبار الملفات المساعدة...', 'info');
+            
+            const assets = [
+                '/assets/css/style.css',
+                '/assets/css/components.css',
+                '/assets/css/responsive.css',
+                '/assets/js/main.js',
+                '/assets/js/auth.js',
+                '/assets/js/dashboard.js'
+            ];
+
+            assets.forEach(async (asset) => {
+                try {
+                    const response = await fetch(asset);
+                    if (response.ok) {
+                        addStatus(`✅ ${asset} - يعمل`, 'success');
+                    } else {
+                        addStatus(`❌ ${asset} - خطأ ${response.status}`, 'error');
+                    }
+                } catch (error) {
+                    addStatus(`❌ ${asset} - خطأ في التحميل`, 'error');
+                }
+            });
+        }
+
+        // Auto-run some tests
+        addStatus('تم تحميل صفحة التشخيص بنجاح', 'success');
+        addStatus('اضغط على الأزرار أعلاه لاختبار المنصة', 'info');
+        
+        // Test if we can access the main site
+        window.onload = function() {
+            testAssets();
+        };
+    </script>
+</body>
+</html>

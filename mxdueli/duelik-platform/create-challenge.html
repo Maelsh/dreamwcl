@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء منافسة جديدة - Dueli</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/forms.css">
+</head>
+<body class="form-body">
+    <!-- Header -->
+    <header class="form-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Dueli</h1>
+                </div>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="btn btn-outline">العودة للوحة التحكم</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="form-main">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header-section">
+                    <h1>إنشاء منافسة جديدة</h1>
+                    <p>قم بإنشاء منافسة مميزة وادعُ منافسين للانضمام إليك</p>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>نوع المنافسة</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>التفاصيل</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>الجدولة</span>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <span>المراجعة</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Challenge Type -->
+                <div class="form-step" id="step1">
+                    <h2>اختر نوع المنافسة</h2>
+                    <div class="challenge-type-grid">
+                        <label class="challenge-type-card">
+                            <input type="radio" name="category" value="dialogue" checked>
+                            <div class="type-content">
+                                <div class="type-icon">💬</div>
+                                <h3>الحوار</h3>
+                                <p>مناظرات ونقاشات حول مواضيع مختلفة</p>
+                                <div class="sub-categories">
+                                    <span>حوارات الأديان</span>
+                                    <span>الأيديولوجيات السياسية</span>
+                                    <span>الأنظمة الاقتصادية</span>
+                                    <span>قضايا الساعة</span>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="challenge-type-card">
+                            <input type="radio" name="category" value="science">
+                            <div class="type-content">
+                                <div class="type-icon">🔬</div>
+                                <h3>العلوم</h3>
+                                <p>مسابقات علمية ومناقشات أكاديمية</p>
+                                <div class="sub-categories">
+                                    <span>الفيزياء</span>
+                                    <span>الرياضيات</span>
+                                    <span>الطب</span>
+                                    <span>الكيمياء</span>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="challenge-type-card">
+                            <input type="radio" name="category" value="talent">
+                            <div class="type-content">
+                                <div class="type-icon">🎯</div>
+                                <h3>المواهب</h3>
+                                <p>إظهار المواهب والقدرات الخاصة</p>
+                                <div class="sub-categories">
+                                    <span>المواهب البدنية</span>
+                                    <span>المواهب الصوتية</span>
+                                    <span>المواهب النفسية</span>
+                                    <span>المواهب الفنية</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Sub-categories (will be populated dynamically) -->
+                    <div class="sub-category-selection" id="subCategorySelection">
+                        <h3>اختر المجال الفرعي</h3>
+                        <div class="sub-category-grid" id="subCategoryGrid">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary" id="nextBtn1">التالي</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Challenge Details -->
+                <div class="form-step hidden" id="step2">
+                    <h2>تفاصيل المنافسة</h2>
+                    
+                    <form class="challenge-form">
+                        <div class="form-group">
+                            <label for="challengeTitle">عنوان المنافسة</label>
+                            <input type="text" id="challengeTitle" name="title" placeholder="مثال: مناظرة حول مستقبل الذكاء الاصطناعي" required>
+                            <span class="char-count">0/100</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="challengeDescription">وصف المنافسة</label>
+                            <textarea id="challengeDescription" name="description" rows="4" placeholder="اشرح تفاصيل المنافسة وأهدافها..." required></textarea>
+                            <span class="char-count">0/500</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="challengeRules">قوانين المنافسة</label>
+                            <textarea id="challengeRules" name="rules" rows="4" placeholder="حدد قوانين المنافسة والمعايير التقييمية..." required></textarea>
+                            <span class="char-count">0/300</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="maxCompetitors">الحد الأقصى للمتنافسين</label>
+                            <select id="maxCompetitors" name="maxCompetitors" required>
+                                <option value="2">2 متنافسين</option>
+                                <option value="3">3 متنافسين</option>
+                                <option value="4">4 متنافسين</option>
+                                <option value="custom">مخصص</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="evaluationMethod">طريقة التقييم</label>
+                            <select id="evaluationMethod" name="evaluationMethod" required>
+                                <option value="audience">تقييم الجمهور فقط</option>
+                                <option value="judges">لجنة تحكيم</option>
+                                <option value="mixed">تقييم جمهور + لجنة تحكيم</option>
+                                <option value="automated">تقييم آلي</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prizeDistribution">توزيع الجوائز</label>
+                            <div class="prize-options">
+                                <label class="radio-option">
+                                    <input type="radio" name="prizeType" value="percentage" checked>
+                                    <span>نسب من الأرباح (80% للمتنافسين)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="prizeType" value="fixed">
+                                    <span>مبلغ ثابت</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="prizeType" value="none">
+                                    <span>بدون جوائز مالية</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="challengeTags">الوسوم</label>
+                            <input type="text" id="challengeTags" name="tags" placeholder="أضف وسوماً للبحث (مثال: تقنية، ذكاء اصطناعي)">
+                            <div class="tag-suggestions">
+                                <span class="suggested-tag" data-tag="تقنية">تقنية</span>
+                                <span class="suggested-tag" data-tag="ذكاء اصطناعي">ذكاء اصطناعي</span>
+                                <span class="suggested-tag" data-tag="مناقشة">مناقشة</span>
+                                <span class="suggested-tag" data-tag="عامة">عامة</span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="prevBtn2">السابق</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn2">التالي</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 3: Scheduling -->
+                <div class="form-step hidden" id="step3">
+                    <h2>جدولة المنافسة</h2>
+                    
+                    <form class="scheduling-form">
+                        <div class="form-group">
+                            <label for="scheduleType">نوع الجدولة</label>
+                            <div class="radio-options">
+                                <label class="radio-option">
+                                    <input type="radio" name="scheduleType" value="immediate" checked>
+                                    <span>مباشرة (الآن)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="scheduleType" value="scheduled">
+                                    <span>مجدولة (في وقت محدد)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="scheduleType" value="open">
+                                    <span>دعوات مفتوحة</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="scheduled-options hidden" id="scheduledOptions">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="scheduleDate">تاريخ المنافسة</label>
+                                    <input type="date" id="scheduleDate" name="date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="scheduleTime">الوقت</label>
+                                    <input type="time" id="scheduleTime" name="time">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timezone">المنطقة الزمنية</label>
+                                <select id="timezone" name="timezone">
+                                    <option value="Asia/Riyadh">الرياض (GMT+3)</option>
+                                    <option value="Asia/Dubai">دبي (GMT+4)</option>
+                                    <option value="Africa/Cairo">القاهرة (GMT+2)</option>
+                                    <option value="Asia/Amman">عمّان (GMT+2)</option>
+                                    <option value="Asia/Kuwait">الكويت (GMT+3)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">المدة المتوقعة</label>
+                                <select id="duration" name="duration">
+                                    <option value="30">30 دقيقة</option>
+                                    <option value="60" selected>ساعة واحدة</option>
+                                    <option value="90">ساعة ونصف</option>
+                                    <option value="120">ساعتان</option>
+                                    <option value="custom">مخصص</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="invitation-options" id="invitationOptions">
+                            <h3>خيارات الدعوات</h3>
+                            <div class="form-group">
+                                <label for="inviteMethod">طريقة دعوة المنافسين</label>
+                                <div class="checkbox-options">
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" name="inviteMethods" value="search" checked>
+                                        <span>البحث عن منافسين</span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" name="inviteMethods" value="followers">
+                                        <span>دعوة المتابعين</span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" name="inviteMethods" value="public">
+                                        <span>دعوة عامة (يمكن لأي شخص الانضمام)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inviteDeadline">آخر موعد للقبول</label>
+                                <div class="form-row">
+                                    <input type="date" id="inviteDate" name="inviteDate">
+                                    <input type="time" id="inviteTime" name="inviteTime">
+                                </div>
+                                <p class="help-text">إذا لم يتم قبول الدعوة قبل هذا الوقت، ستُلغى المنافسة</p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="prevBtn3">السابق</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn3">التالي</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 4: Review -->
+                <div class="form-step hidden" id="step4">
+                    <h2>مراجعة وتشغيل المنافسة</h2>
+                    
+                    <div class="review-section">
+                        <div class="review-card">
+                            <h3>ملخص المنافسة</h3>
+                            <div class="review-content" id="reviewContent">
+                                <!-- Will be populated with form data -->
+                            </div>
+                        </div>
+
+                        <div class="preferences-section">
+                            <h3>التفضيلات</h3>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allowLateJoin" checked>
+                                    <span class="checkmark"></span>
+                                    السماح بالمشاركة المتأخرة
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="recordVideo" checked>
+                                    <span class="checkmark"></span>
+                                    تسجيل المنافسة تلقائياً
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allowComments" checked>
+                                    <span class="checkmark"></span>
+                                    السماح بالتعليقات أثناء البث
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="maxViewers">الحد الأقصى للمشاهدين</label>
+                                <input type="number" id="maxViewers" name="maxViewers" value="1000" min="10">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ageRestriction">الحد الأدنى للعمر</label>
+                                <select id="ageRestriction" name="ageRestriction">
+                                    <option value="none">بدون قيود</option>
+                                    <option value="13">13 سنة</option>
+                                    <option value="16">16 سنة</option>
+                                    <option value="18">18 سنة</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="platform-options">
+                            <h3>خيارات البث</h3>
+                            <div class="form-group">
+                                <label for="streamingPlatform">منصة البث</label>
+                                <select id="streamingPlatform" name="streamingPlatform">
+                                    <option value="youtube" selected>YouTube (متكامل مع المنصة)</option>
+                                    <option value="custom">منصة مخصصة</option>
+                                    <option value="livekit">LiveKit (مستقبلاً)</option>
+                                </select>
+                            </div>
+
+                            <div class="streaming-info" id="streamingInfo">
+                                <div class="youtube-setup">
+                                    <p>ستحتاج لربط قناتك بـ YouTube API للبث المباشر</p>
+                                    <button type="button" class="btn btn-outline" id="setupYouTube">إعداد YouTube</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="prevBtn4">السابق</button>
+                        <button type="button" class="btn btn-success" id="createChallenge">إنشاء وتشغيل المنافسة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- API Configuration -->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/create-challenge.js"></script>
+</body>
+</html>

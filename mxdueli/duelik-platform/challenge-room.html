@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غرفة المنافسة المباشرة - Dueli</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/challenge-room.css">
+</head>
+<body class="challenge-room-body">
+    <!-- Challenge Room Header -->
+    <header class="challenge-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Challenge Info -->
+                <div class="challenge-info">
+                    <h1>مناظرة حول مستقبل الذكاء الاصطناعي</h1>
+                    <div class="challenge-meta">
+                        <span class="category">الحوار</span>
+                        <span class="subcategory">تقنية المستقبل</span>
+                        <span class="live-badge">مباشر</span>
+                        <span class="viewer-count">1,247 مشاهد</span>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <button class="icon-btn share-btn" title="مشاركة">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="16,6 12,2 8,6" stroke="currentColor" stroke-width="2"/>
+                            <line x1="12" y1="2" x2="12" y2="15" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="icon-btn fullscreen-btn" title="ملء الشاشة">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="9,21 3,21 3,15" stroke="currentColor" stroke-width="2"/>
+                            <line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2"/>
+                            <line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+
+                    <button class="icon-btn settings-btn" title="الإعدادات">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <button class="btn btn-outline close-btn" onclick="window.close()">خروج</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Challenge Area -->
+    <main class="challenge-main">
+        <!-- Video Stream Area -->
+        <section class="stream-area">
+            <div class="stream-container">
+                <!-- Main Video -->
+                <div class="main-stream">
+                    <div class="stream-placeholder">
+                        <img src="../assets/images/stream-placeholder.jpg" alt="البث المباشر">
+                        <div class="stream-controls">
+                            <button class="control-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <polygon points="5,3 19,12 5,21" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="stream-overlay">
+                            <div class="quality-indicator">1080p</div>
+                            <div class="live-indicator">
+                                <div class="live-dot"></div>
+                                <span>مباشر</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Competitor Streams (for competitors) -->
+                    <div class="competitor-streams">
+                        <div class="competitor-stream">
+                            <div class="stream-placeholder small">
+                                <img src="../assets/images/competitor-1.jpg" alt="أحمد محمد">
+                                <div class="competitor-info">
+                                    <span class="competitor-name">أحمد محمد</span>
+                                    <div class="competitor-status">
+                                        <span class="mic-status muted">🎤</span>
+                                        <span class="cam-status">📹</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="competitor-stream">
+                            <div class="stream-placeholder small">
+                                <img src="../assets/images/competitor-2.jpg" alt="سارة أحمد">
+                                <div class="competitor-info">
+                                    <span class="competitor-name">سارة أحمد</span>
+                                    <div class="competitor-status">
+                                        <span class="mic-status">🎤</span>
+                                        <span class="cam-status off">📹</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stream Info Panel -->
+                <div class="stream-info-panel">
+                    <div class="challenge-timer">
+                        <div class="timer-display">
+                            <span class="timer-text">00:45:32</span>
+                            <button class="btn btn-sm" id="timerBtn">إيقاف مؤقت</button>
+                        </div>
+                        <div class="time-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Panel (for viewers) -->
+                    <div class="evaluation-panel" id="evaluationPanel">
+                        <h3>قيّم الأداء</h3>
+                        <div class="ratings">
+                            <div class="rating-item">
+                                <div class="competitor-mini">
+                                    <img src="../assets/images/competitor-1-thumb.jpg" alt="أحمد">
+                                    <span>أحمد</span>
+                                </div>
+                                <div class="rating-stars">
+                                    <button class="star-btn" data-rating="1">⭐</button>
+                                    <button class="star-btn" data-rating="2">⭐</button>
+                                    <button class="star-btn" data-rating="3">⭐</button>
+                                    <button class="star-btn" data-rating="4">⭐</button>
+                                    <button class="star-btn" data-rating="5">⭐</button>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="competitor-mini">
+                                    <img src="../assets/images/competitor-2-thumb.jpg" alt="سارة">
+                                    <span>سارة</span>
+                                </div>
+                                <div class="rating-stars">
+                                    <button class="star-btn" data-rating="1">⭐</button>
+                                    <button class="star-btn" data-rating="2">⭐</button>
+                                    <button class="star-btn" data-rating="3">⭐</button>
+                                    <button class="star-btn" data-rating="4">⭐</button>
+                                    <button class="star-btn" data-rating="5">⭐</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="live-scores">
+                            <div class="score-item">
+                                <span>أحمد</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 67%"></div>
+                                </div>
+                                <span class="score-value">67%</span>
+                            </div>
+                            <div class="score-item">
+                                <span>سارة</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 33%"></div>
+                                </div>
+                                <span class="score-value">33%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Competitor Controls (for competitors) -->
+                    <div class="competitor-controls hidden" id="competitorControls">
+                        <h3>أدوات التحكم</h3>
+                        <div class="control-buttons">
+                            <button class="control-btn" id="micToggle">
+                                <span class="btn-icon">🎤</span>
+                                <span>الميكروفون</span>
+                            </button>
+                            <button class="control-btn" id="camToggle">
+                                <span class="btn-icon">📹</span>
+                                <span>الكاميرا</span>
+                            </button>
+                            <button class="control-btn" id="screenShare">
+                                <span class="btn-icon">🖥️</span>
+                                <span>مشاركة الشاشة</span>
+                            </button>
+                            <button class="control-btn" id="chatToggle">
+                                <span class="btn-icon">💬</span>
+                                <span>الدردشة</span>
+                            </button>
+                        </div>
+                        <div class="emergency-actions">
+                            <button class="btn btn-danger" id="endChallenge">إنهاء المنافسة</button>
+                            <button class="btn btn-warning" id="pauseChallenge">توقف مؤقت</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="challenge-sidebar">
+            <!-- Chat Section -->
+            <div class="chat-section">
+                <div class="chat-header">
+                    <h3>الدردشة المباشرة</h3>
+                    <div class="chat-controls">
+                        <button class="chat-filter active" data-filter="all">الكل</button>
+                        <button class="chat-filter" data-filter="competitors">المتنافسون</button>
+                        <button class="chat-filter" data-filter="moderators">المشرفون</button>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be populated here -->
+                    <div class="message">
+                        <div class="message-header">
+                            <img src="../assets/images/user-avatar.jpg" alt="المستخدم" class="user-avatar">
+                            <span class="username">محمد العلي</span>
+                            <span class="message-time">14:32</span>
+                            <span class="message-type">منافس</span>
+                        </div>
+                        <div class="message-content">نقطة ممتازة! أتفق مع ما يقوله أحمد</div>
+                    </div>
+                    
+                    <div class="message">
+                        <div class="message-header">
+                            <img src="../assets/images/user-avatar-2.jpg" alt="المستخدم" class="user-avatar">
+                            <span class="username">فاطمة الزهراني</span>
+                            <span class="message-time">14:33</span>
+                        </div>
+                        <div class="message-content">تقييم ممتاز! المنافسة ممتعة جداً 👏</div>
+                    </div>
+
+                    <div class="message">
+                        <div class="message-header">
+                            <span class="system-icon">⚡</span>
+                            <span class="username">النظام</span>
+                            <span class="message-time">14:35</span>
+                        </div>
+                        <div class="message-content system">تم تحديث النقاط: أحمد (67%), سارة (33%)</div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="اكتب رسالتك..." maxlength="500">
+                    <button class="send-btn" id="sendBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2"/>
+                            <polygon points="22,2 15,22 11,13 2,9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Viewers List -->
+            <div class="viewers-section">
+                <h3>المشاهدون</h3>
+                <div class="viewers-count">1,247 مشاهدة حالية</div>
+                <div class="viewers-list">
+                    <div class="viewer-item">
+                        <img src="../assets/images/user-avatar.jpg" alt="مستخدم" class="viewer-avatar">
+                        <span class="viewer-name">علي المحترف</span>
+                        <span class="viewer-badge">مشرف</span>
+                    </div>
+                    <div class="viewer-item">
+                        <img src="../assets/images/user-avatar-2.jpg" alt="مستخدم" class="viewer-avatar">
+                        <span class="viewer-name">فاطمة المبدعة</span>
+                    </div>
+                    <div class="viewer-item">
+                        <img src="../assets/images/user-avatar-3.jpg" alt="مستخدم" class="viewer-avatar">
+                        <span class="viewer-name">سارة النشيط</span>
+                    </div>
+                    <!-- More viewers... -->
+                </div>
+                <button class="view-all-btn" id="viewAllViewers">عرض كل المشاهدين</button>
+            </div>
+
+            <!-- Challenge Stats -->
+            <div class="stats-section">
+                <h3>إحصائيات المنافسة</h3>
+                <div class="stat-items">
+                    <div class="stat-item">
+                        <span class="stat-value">1,247</span>
+                        <span class="stat-label">مشاهدة</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">247</span>
+                        <span class="stat-label">تعليق</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">5</span>
+                        <span class="stat-label">تقييم</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Moderation Panel (for moderators) -->
+    <div class="moderation-panel hidden" id="moderationPanel">
+        <div class="panel-header">
+            <h3>لوحة الإشراف</h3>
+            <button class="close-panel" id="closeModeration">✕</button>
+        </div>
+        <div class="panel-content">
+            <div class="moderation-actions">
+                <button class="btn btn-warning" id="muteParticipant">كتم المشاركين</button>
+                <button class="btn btn-danger" id="endChat">تعطيل الدردشة</button>
+                <button class="btn btn-danger" id="deleteMessages">حذف الرسائل</button>
+            </div>
+            <div class="reported-items">
+                <h4>البلاغات</h4>
+                <div class="report-item">
+                    <span>بلاغ عن المستخدم محمد العلي</span>
+                    <button class="btn btn-sm">مراجعة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions Floating Menu -->
+    <div class="floating-actions">
+        <button class="floating-btn" id="openModeration" title="لوحة الإشراف">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="floating-btn" id="inviteFriends" title="دعوة الأصدقاء">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="floating-btn" id="shareChallenge" title="مشاركة">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8" stroke="currentColor" stroke-width="2"/>
+                <polyline points="16,6 12,2 8,6" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="2" x2="12" y2="15" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notifications-container" id="notificationsContainer">
+        <!-- Notifications will appear here -->
+    </div>
+
+    <!-- API Configuration -->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/challenge-room.js"></script>
+</body>
+</html>

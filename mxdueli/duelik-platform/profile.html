@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بروفايل - Dueli</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
+</head>
+<body class="profile-body">
+    <!-- Header -->
+    <header class="profile-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Dueli</h1>
+                </div>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="btn btn-outline">العودة للوحة التحكم</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Cover -->
+    <section class="profile-cover">
+        <div class="cover-image">
+            <img src="../assets/images/profile-cover.jpg" alt="غلاف البروفايل">
+        </div>
+        <div class="cover-overlay">
+            <div class="container">
+                <div class="profile-summary">
+                    <div class="profile-avatar">
+                        <img src="../assets/images/user-avatar.jpg" alt="أحمد محمد">
+                        <button class="avatar-edit-btn" title="تغيير الصورة">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="13" r="4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h1>أحمد محمد العلي</h1>
+                        <p class="profile-handle">@ahmed_mohammed</p>
+                        <p class="profile-bio">متخصص في الحوسبة والذكاء الاصطناعي، أشارك في المناظرات التقنية والعلمية</p>
+                        
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">1,247</span>
+                                <span class="stat-label">متابع</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">456</span>
+                                <span class="stat-label">متابع</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24</span>
+                                <span class="stat-label">منافسة</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">15</span>
+                                <span class="stat-label">انتصار</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-badges">
+                            <div class="badge gold">
+                                <span class="badge-icon">🏆</span>
+                                <span>البطل الذهبي</span>
+                            </div>
+                            <div class="badge expert">
+                                <span class="badge-icon">🎓</span>
+                                <span>خبير الذكاء الاصطناعي</span>
+                            </div>
+                            <div class="badge popular">
+                                <span class="badge-icon">⭐</span>
+                                <span>مشهور</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" id="followBtn">متابعة</button>
+                        <button class="btn btn-outline" id="messageBtn">مراسلة</button>
+                        <button class="btn btn-outline" id="shareProfileBtn">مشاركة</button>
+                        
+                        <!-- Only show if viewing own profile -->
+                        <div class="own-profile-actions hidden">
+                            <button class="btn btn-secondary" id="editProfileBtn">تعديل البروفايل</button>
+                            <button class="btn btn-outline" id="settingsBtn">الإعدادات</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Navigation -->
+    <nav class="profile-nav">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="overview">نظرة عامة</button>
+                <button class="nav-tab" data-tab="challenges">المنافسات</button>
+                <button class="nav-tab" data-tab="achievements">الإنجازات</button>
+                <button class="nav-tab" data-tab="followers">المتابعين</button>
+                <button class="nav-tab" data-tab="following">المتابعة</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <main class="profile-content">
+        <div class="container">
+            <div class="profile-grid">
+                <!-- Main Content -->
+                <div class="profile-main">
+                    <!-- Overview Tab -->
+                    <div class="tab-content active" id="overviewTab">
+                        <div class="overview-section">
+                            <h2>المعلومات الشخصية</h2>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">البريد الإلكتروني</span>
+                                    <span class="info-value">ahmed@example.com</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">الدولة</span>
+                                    <span class="info-value">السعودية</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">اللغة المفضلة</span>
+                                    <span class="info-value">العربية</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">تاريخ الانضمام</span>
+                                    <span class="info-value">يناير 2024</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">آخر نشاط</span>
+                                    <span class="info-value">منذ ساعتين</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">التخصص</span>
+                                    <span class="info-value">الذكاء الاصطناعي</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="overview-section">
+                            <h2>الأقسام المفضلة</h2>
+                            <div class="favorite-categories">
+                                <span class="category-tag">الحوار</span>
+                                <span class="category-tag">العلوم</span>
+                                <span class="category-tag">التكنولوجيا</span>
+                                <span class="category-tag">الذكاء الاصطناعي</span>
+                            </div>
+                        </div>
+
+                        <div class="overview-section">
+                            <h2>النشاطات الأخيرة</h2>
+                            <div class="activity-feed">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                            <polyline points="17,11 19,13 23,9" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>شارك في منافسة <strong>مناظرة حول الذكاء الاصطناعي</strong></p>
+                                        <span class="activity-time">منذ ساعتين</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>حصل على تقييم 5 نجوم في <strong>منافسة الحلول التقنية</strong></p>
+                                        <span class="activity-time">أمس</span>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>بدأ متابعة <strong>فاطمة المبدعة</strong></p>
+                                        <span class="activity-time">منذ 3 أيام</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Challenges Tab -->
+                    <div class="tab-content" id="challengesTab">
+                        <div class="challenges-section">
+                            <h2>المنافسات</h2>
+                            <div class="challenge-filters">
+                                <button class="filter-btn active" data-filter="all">الكل</button>
+                                <button class="filter-btn" data-filter="upcoming">قادمة</button>
+                                <button class="filter-btn" data-filter="live">مباشرة</button>
+                                <button class="filter-btn" data-filter="completed">منتهية</button>
+                                <button class="filter-btn" data-filter="won">فوز</button>
+                            </div>
+
+                            <div class="challenges-list">
+                                <div class="challenge-card completed">
+                                    <div class="challenge-thumbnail">
+                                        <img src="../assets/images/challenge-1.jpg" alt="المنافسة">
+                                        <span class="status-badge completed">منتهية</span>
+                                    </div>
+                                    <div class="challenge-info">
+                                        <h3>مناظرة حول مستقبل الذكاء الاصطناعي</h3>
+                                        <p class="challenge-desc">مناقشة حول تطبيقات الذكاء الاصطناعي في المستقبل</p>
+                                        <div class="challenge-meta">
+                                            <span class="category">الحوار</span>
+                                            <span class="date">15 نوفمبر 2024</span>
+                                            <span class="rating">4.8/5</span>
+                                        </div>
+                                        <div class="challenge-stats">
+                                            <span class="views">1,247 مشاهدة</span>
+                                            <span class="earnings">$125.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="challenge-card won">
+                                    <div class="challenge-thumbnail">
+                                        <img src="../assets/images/challenge-2.jpg" alt="المنافسة">
+                                        <span class="status-badge won">فوز</span>
+                                    </div>
+                                    <div class="challenge-info">
+                                        <h3>تحدي الحلول التقنية للمشاكل الاجتماعية</h3>
+                                        <p class="challenge-desc">ابتكار حلول تقنية إبداعية للمشاكل الاجتماعية</p>
+                                        <div class="challenge-meta">
+                                            <span class="category">العلوم</span>
+                                            <span class="date">12 نوفمبر 2024</span>
+                                            <span class="rating">5.0/5</span>
+                                        </div>
+                                        <div class="challenge-stats">
+                                            <span class="views">2,134 مشاهدة</span>
+                                            <span class="earnings">$89.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="challenge-card upcoming">
+                                    <div class="challenge-thumbnail">
+                                        <img src="../assets/images/challenge-3.jpg" alt="المنافسة">
+                                        <span class="status-badge upcoming">قادمة</span>
+                                    </div>
+                                    <div class="challenge-info">
+                                        <h3>نقاش حول أخلاقيات التكنولوجيا</h3>
+                                        <p class="challenge-desc">مناقشة التحديات الأخلاقية في التطور التكنولوجي</p>
+                                        <div class="challenge-meta">
+                                            <span class="category">الحوار</span>
+                                            <span class="date">20 نوفمبر 2024 - 19:00</span>
+                                        </div>
+                                        <div class="challenge-stats">
+                                            <span class="competitors">3 متنافسين</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements Tab -->
+                    <div class="tab-content" id="achievementsTab">
+                        <div class="achievements-section">
+                            <h2>الإنجازات والشارات</h2>
+                            <div class="achievements-grid">
+                                <div class="achievement-card">
+                                    <div class="achievement-icon gold">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9H4.5a2.5 2.5 0 01-2.5-2.5V4.5A2.5 2.5 0 014.5 2h6A2.5 2.5 0 0113 4.5v2" stroke="currentColor" stroke-width="2"/>
+                                            <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="achievement-info">
+                                        <h3>البطل الذهبي</h3>
+                                        <p>فاز في 10 منافسات متتالية</p>
+                                        <span class="achievement-date">تم الحصول عليه: 15 أكتوبر 2024</span>
+                                    </div>
+                                </div>
+
+                                <div class="achievement-card">
+                                    <div class="achievement-icon silver">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                            <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="achievement-info">
+                                        <h3>النجم الصاعد</h3>
+                                        <p>حصل على أكثر من 100 تقييم 5 نجوم</p>
+                                        <span class="achievement-date">تم الحصول عليه: 8 أكتوبر 2024</span>
+                                    </div>
+                                </div>
+
+                                <div class="achievement-card">
+                                    <div class="achievement-icon bronze">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                            <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="achievement-info">
+                                        <h3>المنظم النشط</h3>
+                                        <p>أنشأ 25 منافسة على الأقل</p>
+                                        <span class="achievement-date">تم الحصول عليه: 1 أكتوبر 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-section">
+                            <h2>الإحصائيات</h2>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <h3>إجمالي المشاهدات</h3>
+                                    <span class="stat-number">47,532</span>
+                                </div>
+                                <div class="stat-card">
+                                    <h3>متوسط التقييم</h3>
+                                    <span class="stat-number">4.6/5</span>
+                                </div>
+                                <div class="stat-card">
+                                    <h3>نسبة الفوز</h3>
+                                    <span class="stat-number">62.5%</span>
+                                </div>
+                                <div class="stat-card">
+                                    <h3>إجمالي الأرباح</h3>
+                                    <span class="stat-number">$2,450</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Followers Tab -->
+                    <div class="tab-content" id="followersTab">
+                        <div class="followers-section">
+                            <h2>المتابعون</h2>
+                            <div class="followers-grid">
+                                <div class="user-item">
+                                    <img src="../assets/images/user-avatar-2.jpg" alt="فاطمة المبدعة" class="user-avatar">
+                                    <div class="user-info">
+                                        <h3>فاطمة المبدعة</h3>
+                                        <p>@fatima_creative</p>
+                                        <span class="user-stats">124 متابع • 89 متابعة</span>
+                                    </div>
+                                    <button class="btn btn-outline btn-sm">إلغاء المتابعة</button>
+                                </div>
+
+                                <div class="user-item">
+                                    <img src="../assets/images/user-avatar-3.jpg" alt="محمد التقني" class="user-avatar">
+                                    <div class="user-info">
+                                        <h3>محمد التقني</h3>
+                                        <p>@mohammed_tech</p>
+                                        <span class="user-stats">89 متابع • 156 متابعة</span>
+                                    </div>
+                                    <button class="btn btn-outline btn-sm">إلغاء المتابعة</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Following Tab -->
+                    <div class="tab-content" id="followingTab">
+                        <div class="following-section">
+                            <h2>المتابعة</h2>
+                            <div class="following-grid">
+                                <div class="user-item">
+                                    <img src="../assets/images/user-avatar-4.jpg" alt="علي المحترف" class="user-avatar">
+                                    <div class="user-info">
+                                        <h3>علي المحترف</h3>
+                                        <p>@ali_pro</p>
+                                        <span class="user-stats">2,145 متابع • 567 متابعة</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">متابعة</button>
+                                </div>
+
+                                <div class="user-item">
+                                    <img src="../assets/images/user-avatar-5.jpg" alt="سارة الملتزمة" class="user-avatar">
+                                    <div class="user-info">
+                                        <h3>سارة الملتزمة</h3>
+                                        <p>@sarah_dedicated</p>
+                                        <span class="user-stats">1,089 متابع • 234 متابعة</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">متابعة</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="profile-sidebar">
+                    <!-- Quick Actions -->
+                    <div class="sidebar-section">
+                        <h3>إجراءات سريعة</h3>
+                        <div class="quick-actions">
+                            <button class="btn btn-outline btn-full" id="challengeBtn">تحدي المستخدم</button>
+                            <button class="btn btn-outline btn-full" id="blockBtn">حظر المستخدم</button>
+                            <button class="btn btn-outline btn-full" id="reportBtn">إبلاغ</button>
+                        </div>
+                    </div>
+
+                    <!-- Popular Challenges -->
+                    <div class="sidebar-section">
+                        <h3>منافسات شائعة</h3>
+                        <div class="popular-challenges">
+                            <div class="challenge-mini">
+                                <img src="../assets/images/challenge-thumb-1.jpg" alt="التحدي">
+                                <div class="challenge-info">
+                                    <h4>نقاش حول الطاقة</h4>
+                                    <span class="challenge-meta">23 participated</span>
+                                </div>
+                            </div>
+                            <div class="challenge-mini">
+                                <img src="../assets/images/challenge-thumb-2.jpg" alt="التحدي">
+                                <div class="challenge-info">
+                                    <h4>حل المعادلات</h4>
+                                    <span class="challenge-meta">15 participated</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Similar Users -->
+                    <div class="sidebar-section">
+                        <h3>مستخدمون مشابهون</h3>
+                        <div class="similar-users">
+                            <div class="user-item compact">
+                                <img src="../assets/images/user-avatar-6.jpg" alt="المستخدم" class="user-avatar">
+                                <div class="user-info">
+                                    <h4>خالد العلمي</h4>
+                                    <span class="user-stats">المتخصص في الذكاء الاصطناعي</span>
+                                </div>
+                                <button class="btn btn-xs btn-outline">متابعة</button>
+                            </div>
+                            <div class="user-item compact">
+                                <img src="../assets/images/user-avatar-7.jpg" alt="المستخدم" class="user-avatar">
+                                <div class="user-info">
+                                    <h4>نور التقنية</h4>
+                                    <span class="user-stats">خبيرة الأمن السيبراني</span>
+                                </div>
+                                <button class="btn btn-xs btn-outline">متابعة</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- API Configuration -->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/profile.js"></script>
+</body>
+</html>

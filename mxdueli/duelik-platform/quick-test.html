@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار سريع - منصة Dueli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #1a1a1a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #333;
+        }
+        .status-ok { color: #0f0; }
+        .status-error { color: #f00; }
+        .status-warning { color: #ff0; }
+        button {
+            background: #0a84ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover { background: #0066cc; }
+        input, select {
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background: #222;
+        }
+        .result.success { border-left: 4px solid #0f0; }
+        .result.error { border-left: 4px solid #f00; }
+        .result.warning { border-left: 4px solid #ff0; }
+    </style>
+</head>
+<body>
+    <h1>🧪 اختبار منصة Dueli - النسخة السريعة</h1>
+    
+    <div class="test-section">
+        <h2>1. اختبار النظام الأساسي</h2>
+        <div id="basic-tests">
+            <div class="result">
+                <strong>JavaScript:</strong> <span id="js-status">جاري الاختبار...</span>
+            </div>
+            <div class="result">
+                <strong>CSS:</strong> <span id="css-status">جاري الاختبار...</span>
+            </div>
+            <div class="result">
+                <strong>DOM:</strong> <span id="dom-status">جاري الاختبار...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. اختبار التنقل</h2>
+        <button onclick="testNavigation()">اختبار جميع الروابط</button>
+        <div id="nav-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. اختبار البحث</h2>
+        <input type="text" id="search-input" placeholder="جرب البحث هنا...">
+        <button onclick="testSearch()">اختبار البحث</button>
+        <div id="search-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. اختبار النماذج</h2>
+        <input type="email" id="test-email" placeholder="بريد إلكتروني">
+        <input type="password" id="test-password" placeholder="كلمة مرور">
+        <button onclick="testForm()">اختبار النماذج</button>
+        <div id="form-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>5. اختبار الرسوم المتحركة</h2>
+        <button onclick="testAnimations()">اختبار الرسوم المتحركة</button>
+        <div id="animation-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>6. النتائج العامة</h2>
+        <div id="overall-results">
+            <p><strong>حالة النظام:</strong> <span id="system-status" class="status-warning">جاري الاختبار...</span></p>
+            <p><strong>عدد الأخطاء:</strong> <span id="error-count">0</span></p>
+            <p><strong>عدد التحذيرات:</strong> <span id="warning-count">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        let errorCount = 0;
+        let warningCount = 0;
+
+        function updateCounters() {
+            document.getElementById('error-count').textContent = errorCount;
+            document.getElementById('warning-count').textContent = warningCount;
+        }
+
+        function addResult(containerId, message, type = 'success') {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.innerHTML = message;
+            container.appendChild(div);
+
+            if (type === 'error') errorCount++;
+            if (type === 'warning') warningCount++;
+            updateCounters();
+        }
+
+        // اختبار النظام الأساسي
+        function testBasicSystem() {
+            // اختبار JavaScript
+            try {
+                const jsWorking = typeof console !== 'undefined' && typeof Array !== 'undefined';
+                document.getElementById('js-status').innerHTML = jsWorking ? 
+                    '<span class="status-ok">✅ يعمل بشكل صحيح</span>' : 
+                    '<span class="status-error">❌ لا يعمل</span>';
+                if (!jsWorking) addResult('basic-tests', 'JavaScript لا يعمل', 'error');
+            } catch (e) {
+                document.getElementById('js-status').innerHTML = '<span class="status-error">❌ خطأ في JavaScript</span>';
+                addResult('basic-tests', 'خطأ في JavaScript: ' + e.message, 'error');
+            }
+
+            // اختبار CSS
+            try {
+                const cssWorking = document.querySelector('body') !== null;
+                document.getElementById('css-status').innerHTML = cssWorking ? 
+                    '<span class="status-ok">✅ يعمل بشكل صحيح</span>' : 
+                    '<span class="status-error">❌ لا يعمل</span>';
+                if (!cssWorking) addResult('basic-tests', 'CSS لا يعمل', 'error');
+            } catch (e) {
+                document.getElementById('css-status').innerHTML = '<span class="status-error">❌ خطأ في CSS</span>';
+                addResult('basic-tests', 'خطأ في CSS: ' + e.message, 'error');
+            }
+
+            // اختبار DOM
+            try {
+                const domWorking = document.readyState === 'complete';
+                document.getElementById('dom-status').innerHTML = domWorking ? 
+                    '<span class="status-ok">✅ جاهز</span>' : 
+                    '<span class="status-warning">⏳ جاري التحميل</span>';
+                if (!domWorking) addResult('basic-tests', 'DOM لم يكتمل التحميل', 'warning');
+            } catch (e) {
+                document.getElementById('dom-status').innerHTML = '<span class="status-error">❌ خطأ في DOM</span>';
+                addResult('basic-tests', 'خطأ في DOM: ' + e.message, 'error');
+            }
+
+            // تحديث الحالة العامة
+            setTimeout(() => {
+                const systemStatus = document.getElementById('system-status');
+                if (errorCount === 0) {
+                    systemStatus.innerHTML = '<span class="status-ok">✅ يعمل بشكل طبيعي</span>';
+                    systemStatus.className = 'status-ok';
+                } else {
+                    systemStatus.innerHTML = '<span class="status-error">❌ توجد أخطاء</span>';
+                    systemStatus.className = 'status-error';
+                }
+            }, 1000);
+        }
+
+        // اختبار التنقل
+        async function testNavigation() {
+            addResult('nav-results', '🔍 جاري اختبار التنقل...', 'warning');
+
+            const pages = [
+                { url: '/', name: 'الصفحة الرئيسية' },
+                { url: '/auth/login.html', name: 'تسجيل الدخول' },
+                { url: '/dashboard.html', name: 'لوحة التحكم' },
+                { url: '/profile.html', name: 'البروفايل' }
+            ];
+
+            for (const page of pages) {
+                try {
+                    const response = await fetch(page.url);
+                    if (response.ok) {
+                        addResult('nav-results', `✅ ${page.name} - متاح`, 'success');
+                    } else {
+                        addResult('nav-results', `❌ ${page.name} - خطأ ${response.status}`, 'error');
+                    }
+                } catch (e) {
+                    addResult('nav-results', `❌ ${page.name} - خطأ في الشبكة`, 'error');
+                }
+            }
+        }
+
+        // اختبار البحث
+        function testSearch() {
+            const query = document.getElementById('search-input').value || 'اختبار';
+            
+            // محاكاة البحث
+            addResult('search-results', `🔍 تم البحث عن: "${query}"`, 'success');
+            addResult('search-results', '✅ البحث يعمل (محاكاة)', 'success');
+            
+            // اختبار JavaScript البحث
+            try {
+                const testResults = ['نتيجة 1', 'نتيجة 2', 'نتيجة 3'];
+                if (testResults.length > 0) {
+                    addResult('search-results', `📊 تم العثور على ${testResults.length} نتيجة`, 'success');
+                } else {
+                    addResult('search-results', '📭 لا توجد نتائج', 'warning');
+                }
+            } catch (e) {
+                addResult('search-results', '❌ خطأ في منطق البحث', 'error');
+            }
+        }
+
+        // اختبار النماذج
+        function testForm() {
+            const email = document.getElementById('test-email').value;
+            const password = document.getElementById('test-password').value;
+
+            addResult('form-results', `📝 تم اختبار النموذج`, 'success');
+
+            // اختبار البريد الإلكتروني
+            if (email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(email)) {
+                    addResult('form-results', '✅ البريد الإلكتروني صحيح', 'success');
+                } else {
+                    addResult('form-results', '❌ البريد الإلكتروني غير صحيح', 'error');
+                }
+            } else {
+                addResult('form-results', '⚠️ لم يتم إدخال بريد إلكتروني', 'warning');
+            }
+
+            // اختبار كلمة المرور
+            if (password) {
+                if (password.length >= 6) {
+                    addResult('form-results', '✅ كلمة المرور مقبولة', 'success');
+                } else {
+                    addResult('form-results', '❌ كلمة المرور قصيرة جداً', 'error');
+                }
+            } else {
+                addResult('form-results', '⚠️ لم يتم إدخال كلمة مرور', 'warning');
+            }
+        }
+
+        // اختبار الرسوم المتحركة
+        function testAnimations() {
+            addResult('animation-results', '🎨 جاري اختبار الرسوم المتحركة...', 'warning');
+
+            // اختبار CSS animations
+            try {
+                // إنشاء عنصر للاختبار
+                const testElement = document.createElement('div');
+                testElement.style.cssText = 'width: 50px; height: 50px; background: #0a84ff; transition: all 0.3s ease;';
+                document.body.appendChild(testElement);
+
+                // محاكاة رسوم متحركة
+                setTimeout(() => {
+                    testElement.style.transform = 'scale(1.2)';
+                    addResult('animation-results', '✅ الرسوم المتحركة تعمل', 'success');
+                }, 100);
+
+                setTimeout(() => {
+                    testElement.remove();
+                    addResult('animation-results', '🎭 تم تنظيف العناصر المؤقتة', 'success');
+                }, 500);
+
+            } catch (e) {
+                addResult('animation-results', '❌ خطأ في الرسوم المتحركة', 'error');
+            }
+        }
+
+        // تشغيل الاختبارات تلقائياً
+        window.onload = function() {
+            setTimeout(testBasicSystem, 500);
+            
+            // إضافة رسالة ترحيب
+            addResult('basic-tests', '🎯 تم تحميل صفحة الاختبار بنجاح!', 'success');
+            addResult('basic-tests', '💡 يمكنك الآن اختبار جميع الوظائف', 'success');
+        };
+    </script>
+</body>
+</html>

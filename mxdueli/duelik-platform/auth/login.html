@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - Dueli</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Logo -->
+            <div class="auth-header">
+                <div class="logo">
+                    <h1>Dueli</h1>
+                </div>
+                <h2>مرحباً بعودتك</h2>
+                <p>سجل دخولك لمتابعة المنافسات</p>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" name="password" required placeholder="أدخل كلمة المرور">
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember">
+                        <span class="checkmark"></span>
+                        تذكرني
+                    </label>
+                    <a href="#" class="forgot-link">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">تسجيل الدخول</button>
+            </form>
+
+            <!-- Social Login -->
+            <div class="social-login">
+                <div class="divider">
+                    <span>أو سجل دخولك بواسطة</span>
+                </div>
+                
+                <div class="social-buttons">
+                    <button class="btn btn-social btn-google">
+                        <img src="../assets/icons/google.svg" alt="Google">
+                        Google
+                    </button>
+                    <button class="btn btn-social btn-apple">
+                        <img src="../assets/icons/apple.svg" alt="Apple">
+                        Apple
+                    </button>
+                </div>
+            </div>
+
+            <!-- Register Link -->
+            <div class="auth-footer">
+                <p>ليس لديك حساب؟ <a href="register.html">سجل الآن</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Configuration -->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>

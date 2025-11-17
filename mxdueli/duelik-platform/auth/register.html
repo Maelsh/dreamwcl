@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - Dueli</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card register-card">
+            <!-- Logo -->
+            <div class="auth-header">
+                <div class="logo">
+                    <h1>Dueli</h1>
+                </div>
+                <h2>أنشئ حسابك</h2>
+                <p>انضم لمنصة المنافسات التفاعلية</p>
+            </div>
+
+            <!-- User Type Selection -->
+            <div class="user-type-selection">
+                <h3>اختر نوع حسابك</h3>
+                <div class="user-types">
+                    <label class="user-type-card">
+                        <input type="radio" name="userType" value="competitor" checked>
+                        <div class="type-content">
+                            <div class="type-icon">🏆</div>
+                            <h4>متنافس</h4>
+                            <p>أشارك في المنافسات وأنشئ منافسات جديدة</p>
+                        </div>
+                    </label>
+                    
+                    <label class="user-type-card">
+                        <input type="radio" name="userType" value="viewer">
+                        <div class="type-content">
+                            <div class="type-icon">👥</div>
+                            <h4>مشاهد مسجل</h4>
+                            <p>أشاهد المنافسات وأقيّم المتنافسين</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <form class="auth-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">الاسم الأول</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="أدخل اسمك الأول">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">الاسم الأخير</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="أدخل اسمك الأخير">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" name="password" required placeholder="أدخل كلمة مرور قوية" minlength="8">
+                    <div class="password-strength">
+                        <div class="strength-meter"></div>
+                        <span class="strength-text">قوة كلمة المرور</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">تأكيد كلمة المرور</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="أعد كتابة كلمة المرور">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">الدولة</label>
+                    <select id="country" name="country" required>
+                        <option value="">اختر دولتك</option>
+                        <option value="SA">السعودية</option>
+                        <option value="AE">الإمارات</option>
+                        <option value="EG">مصر</option>
+                        <option value="JO">الأردن</option>
+                        <option value="KW">الكويت</option>
+                        <option value="QA">قطر</option>
+                        <option value="BH">البحرين</option>
+                        <option value="OM">عمان</option>
+                        <option value="LB">لبنان</option>
+                        <option value="IQ">العراق</option>
+                        <option value="SY">سوريا</option>
+                        <option value="YE">اليمن</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="language">لغة المحتوى المفضلة</label>
+                    <select id="language" name="language" required>
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms" required>
+                        <span class="checkmark"></span>
+                        أوافق على <a href="#">شروط الاستخدام</a> و <a href="#">سياسة الخصوصية</a>
+                    </label>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="notifications">
+                        <span class="checkmark"></span>
+                        أريد تلقي إشعارات عن المنافسات الجديدة
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">إنشاء الحساب</button>
+            </form>
+
+            <!-- Social Login -->
+            <div class="social-login">
+                <div class="divider">
+                    <span>أو سجل بواسطة</span>
+                </div>
+                
+                <div class="social-buttons">
+                    <button class="btn btn-social btn-google">
+                        <img src="../assets/icons/google.svg" alt="Google">
+                        Google
+                    </button>
+                    <button class="btn btn-social btn-apple">
+                        <img src="../assets/icons/apple.svg" alt="Apple">
+                        Apple
+                    </button>
+                </div>
+            </div>
+
+            <!-- Login Link -->
+            <div class="auth-footer">
+                <p>لديك حساب بالفعل؟ <a href="login.html">سجل دخولك</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Configuration -->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/register.js"></script>
+</body>
+</html>

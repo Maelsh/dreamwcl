@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dueli - منصة المنافسات التفاعلية</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="منصة المنافسات التفاعلية الأولى في العالم العربي">
+    <meta name="theme-color" content="#0A84FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Dueli">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/enhancements.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>Dueli</h1>
+                </div>
+                
+                <!-- Header Icons -->
+                <div class="header-actions">
+                    <button class="icon-btn" title="تغيير اللغة">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="icon-btn login-btn" title="تسجيل الدخول">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="container">
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/>
+                </svg>
+                <input type="text" placeholder="البحث عن منافسات..." class="search-input">
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+        <div class="container">
+            <div class="tabs-wrapper">
+                <button class="tab-btn active" data-tab="all">الجميع</button>
+                <button class="tab-btn" data-tab="live">حي</button>
+                <button class="tab-btn" data-tab="recorded">مسجل</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Dialogue Section -->
+            <section class="category-section" data-category="dialogue">
+                <div class="section-header">
+                    <h2 class="section-title">الحوار</h2>
+                    <button class="view-all-btn">مشاهدة الكل</button>
+                </div>
+                
+                <!-- Dialogue Sub-tabs -->
+                <div class="sub-tabs">
+                    <button class="sub-tab-btn active" data-sub="all">الكل</button>
+                    <button class="sub-tab-btn" data-sub="religions">حوار الأديان</button>
+                    <button class="sub-tab-btn" data-sub="sects">حوار المذاهب</button>
+                    <button class="sub-tab-btn" data-sub="politics">حوار السياسة</button>
+                    <button class="sub-tab-btn" data-sub="economics">حوار الاقتصاد</button>
+                    <button class="sub-tab-btn" data-sub="conflicts">حوار المنازعات</button>
+                    <button class="sub-tab-btn" data-sub="current">حوار القضايا الساعة</button>
+                </div>
+
+                <div class="competitions-grid">
+                    <div class="competition-card" data-id="1">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">أحمد محمد</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">سارة أحمد</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">حوار الأديان: المسيحية والإسلام</h3>
+                            <p class="competition-desc">مناقشة شاملة حول أوجه التشابه والاختلاف بين الديانتين</p>
+                            <div class="competition-meta">
+                                <span class="view-count">12.5K مشاهدة</span>
+                                <span class="status live">حي</span>
+                                <span class="date">منذ ساعتين</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-card" data-id="2">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">خالد العلي</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">فاطمة حسن</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">حوار المذاهب: الشافعية والأحناف</h3>
+                            <p class="competition-desc">استعراض لأهم الاختلافات الفقهية بين المذهبين</p>
+                            <div class="competition-meta">
+                                <span class="view-count">8.7K مشاهدة</span>
+                                <span class="status recorded">مسجل</span>
+                                <span class="date">منذ يوم</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-card" data-id="3">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">محمود سليم</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">نور الدين</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">حوار السياسة: الانتخابات والديمقراطية</h3>
+                            <p class="competition-desc">تحليل وتقييم الأنظمة الانتخابية في العالم العربي</p>
+                            <div class="competition-meta">
+                                <span class="view-count">15.2K مشاهدة</span>
+                                <span class="status live">حي</span>
+                                <span class="date">مباشر</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-card" data-id="4">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">عبدالله الكويتي</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">ليلى السعد</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">حوار الاقتصاد: التضخم والأسعار</h3>
+                            <p class="competition-desc">مناقشة تأثير التضخم على الاقتصاد المحلي</p>
+                            <div class="competition-meta">
+                                <span class="view-count">6.8K مشاهدة</span>
+                                <span class="status recorded">مسجل</span>
+                                <span class="date">منذ 3 أيام</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sciences Section -->
+            <section class="category-section" data-category="sciences">
+                <div class="section-header">
+                    <h2 class="section-title">العلوم</h2>
+                    <button class="view-all-btn">مشاهدة الكل</button>
+                </div>
+                
+                <div class="competitions-grid">
+                    <div class="competition-card" data-id="5">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">د. علاء الدين</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">د. سحر كامل</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">الذكاء الاصطناعي: فوائد ومخاطر</h3>
+                            <p class="competition-desc">نقاش معمق حول مستقبل الذكاء الاصطناعي وتأثيره على المجتمع</p>
+                            <div class="competition-meta">
+                                <span class="view-count">25.1K مشاهدة</span>
+                                <span class="status recorded">مسجل</span>
+                                <span class="date">منذ أسبوع</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-card" data-id="6">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">د. محمد الفيزيائي</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">د. أيمن الرياضي</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">نظرية الأوتار: الحقيقة أم الخيال؟</h3>
+                            <p class="competition-desc">استكشاف أعماق الفيزياء النظرية ونظرية كل شيء</p>
+                            <div class="competition-meta">
+                                <span class="view-count">11.3K مشاهدة</span>
+                                <span class="status live">حي</span>
+                                <span class="date">مباشر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Talents Section -->
+            <section class="category-section" data-category="talents">
+                <div class="section-header">
+                    <h2 class="section-title">المواهب</h2>
+                    <button class="view-all-btn">مشاهدة الكل</button>
+                </div>
+                
+                <div class="competitions-grid">
+                    <div class="competition-card" data-id="7">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">ياسمين الغناء</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">عمر العود</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">مواجهة المواهب: غناء vs عود</h3>
+                            <p class="competition-desc">مواجهة فنية مميزة بين الفنانين الصاعدين</p>
+                            <div class="competition-meta">
+                                <span class="view-count">45.2K مشاهدة</span>
+                                <span class="status recorded">مسجل</span>
+                                <span class="date">منذ 5 أيام</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-card" data-id="8">
+                        <div class="video-thumbnail">
+                            <div class="play-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="competitors-info">
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">رامي الخطاط</span>
+                            </div>
+                            
+                            <div class="vs-indicator">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 2L12 12l8-10zm-8 28L12 20l-8 10h16zM12 14l8 6-8 6-8-6 8-6z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="competitor">
+                                <div class="avatar"></div>
+                                <span class="competitor-name">لينا التشكيل</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competition-details">
+                            <h3 class="competition-title">فن الخط العربي vs التشكيل</h3>
+                            <p class="competition-desc">مقارنة بين فنون الخط العربي والفن التشكيلي المعاصر</p>
+                            <div class="competition-meta">
+                                <span class="view-count">18.7K مشاهدة</span>
+                                <span class="status recorded">مسجل</span>
+                                <span class="date">منذ أسبوع</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>منصة Dueli</h3>
+                    <p>منصة المنافسات التفاعلية الأولى في العالم العربي</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.965 1.404-5.965s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>روابط مفيدة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">حول المنصة</a></li>
+                        <li><a href="#">كيفية الاستخدام</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>دعم</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">مركز المساعدة</a></li>
+                        <li><a href="#">الإبلاغ عن مشكلة</a></li>
+                        <li><a href="#">اقتراح ميزة</a></li>
+                        <li><a href="#">تقارير المجتمع</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>قانوني</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">شروط الخدمة</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">سياسة المحتوى</a></li>
+                        <li><a href="#">حقوق الطبع</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 MiniMax Agent. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- API Configuration -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/advanced.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

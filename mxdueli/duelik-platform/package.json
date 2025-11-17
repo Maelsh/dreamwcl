@@ -1,0 +1,111 @@
+{
+  "name": "duelik-platform",
+  "version": "1.0.0",
+  "description": "منصة المنافسات التفاعلية الأولى في العالم العربي",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s . -l 3000",
+    "dev": "npx live-server --port=3000 --entry-file=index.html",
+    "build": "npm run optimize",
+    "optimize": "npm run minify-css && npm run minify-js",
+    "minify-css": "npx cleancss-cli -o assets/css/style.min.css assets/css/style.css assets/css/components.css assets/css/responsive.css assets/css/enhancements.css",
+    "minify-js": "npx terser assets/js/main.js assets/js/advanced.js -o assets/js/bundle.min.js -c -m",
+    "test": "npm run test:html && npm run test:css && npm run test:js",
+    "test:html": "npx html-validate index.html",
+    "test:css": "npx stylelint assets/css/*.css",
+    "test:js": "npx eslint assets/js/*.js",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "npx stylelint assets/css/*.css --fix",
+    "lint:js": "npx eslint assets/js/*.js --fix",
+    "deploy": "npm run build && npm run upload",
+    "upload": "echo 'Configure your deployment script here'",
+    "pwa": "npm run build-manifest && npm run generate-icons",
+    "build-manifest": "node scripts/generate-manifest.js",
+    "generate-icons": "node scripts/generate-icons.js",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "lighthouse": "npx lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json",
+    "perf": "npx webpage-test http://localhost:3000",
+    "security": "npx audit-ci --moderate",
+    "docs": "jsdoc -c jsdoc.conf.json"
+  },
+  "keywords": [
+    "duelik",
+    "منصة",
+    "المنافسات",
+    "تفاعلية",
+    "يوتيوب",
+    "فيديو",
+    "حوار",
+    "تلفزي",
+    "عربي",
+    "pwa",
+    "progressive-web-app"
+  ],
+  "author": {
+    "name": "MiniMax Agent",
+    "email": "contact@duelik.com",
+    "url": "https://duelik.com"
+  },
+  "license": "MIT",
+  "homepage": "https://duelik.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duelik/platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/duelik/platform/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.0.0",
+    "html-validate": "^7.0.0",
+    "jsdoc": "^4.0.0",
+    "lighthouse": "^10.0.0",
+    "live-server": "^1.2.0",
+    "serve": "^14.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^29.0.0",
+    "terser": "^5.0.0"
+  },
+  "dependencies": {},
+  "pwa": {
+    "name": "منصة Dueli",
+    "short_name": "Dueli",
+    "description": "منصة المنافسات التفاعلية الأولى في العالم العربي",
+    "background_color": "#000000",
+    "theme_color": "#0A84FF",
+    "display": "standalone",
+    "orientation": "portrait",
+    "categories": ["entertainment", "social", "video"],
+    "lang": "ar",
+    "dir": "rtl"
+  },
+  "seo": {
+    "title": "Dueli - منصة المنافسات التفاعلية",
+    "description": "منصة المنافسات التفاعلية الأولى في العالم العربي. شاهد منافسات الحوار والعلوم والمواهب مباشر أو مسجل.",
+    "keywords": "duelik, منصة, منافسات, فيديو, حوار, علوم, مواهب, عربي, تفاعلي, مباشر",
+    "author": "MiniMax Agent",
+    "robots": "index, follow",
+    "og:type": "website",
+    "og:site_name": "Dueli",
+    "og:locale": "ar_AR",
+    "twitter:card": "summary_large_image",
+    "twitter:site": "@DueliPlatform"
+  },
+  "config": {
+    "port": 3000,
+    "host": "localhost",
+    "build_dir": "dist",
+    "assets_dir": "assets"
+  }
+}
